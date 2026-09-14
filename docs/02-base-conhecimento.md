@@ -9,16 +9,13 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 | `historico_atendimento.csv` | CSV | Contextualizar interações anteriores |
 | `perfil_investidor.json` | JSON | Personalizar recomendações |
 | `produtos_financeiros.json` | JSON | Sugerir produtos adequados ao perfil |
-| `transacoes.csv` | CSV | Analisar padrão de gastos do cliente |
-
-> [!TIP]
-> **Quer um dataset mais robusto?** Você pode utilizar datasets públicos do [Hugging Face](https://huggingface.co/datasets) relacionados a finanças, desde que sejam adequados ao contexto do desafio.
+| `transacoes.csv` | XLSX | Analisar padrão de gastos do cliente |
 
 ---
 
 ## Adaptações nos Dados
 
-> Você modificou ou expandiu os dados mockados? Descreva aqui.
+Dados mockados do arquivo "personal_transactions.xlsx" obtidos a partir do [Kaggle(https://www.kaggle.com/datasets/entrepreneurlife/personal-finance/code)]
 
 [Sua descrição aqui]
 
