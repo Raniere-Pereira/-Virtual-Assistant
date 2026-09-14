@@ -15,7 +15,7 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 ## Adaptações nos Dados
 
-Dados mockados do arquivo "personal_transactions.xlsx" obtidos a partir do [Kaggle(https://www.kaggle.com/datasets/entrepreneurlife/personal-finance/code)]
+Dados mockados do arquivo 'personal_transactions.xlsx' obtidos a partir do [Kaggle](https://www.kaggle.com/datasets/entrepreneurlife/personal-finance/code)
 
 [Sua descrição aqui]
 
