@@ -2,42 +2,57 @@
 
 ## Dados Utilizados
 
-Descreva se usou os arquivos da pasta `data`, por exemplo:
-
 | Arquivo | Formato | Utilização no Agente |
 |---------|---------|---------------------|
 | `historico_atendimento.csv` | CSV | Contextualizar interações anteriores |
 | `perfil_investidor.json` | JSON | Personalizar recomendações |
 | `produtos_financeiros.json` | JSON | Sugerir produtos adequados ao perfil |
-| `transacoes.csv` | XLSX | Analisar padrão de gastos do cliente |
+| `personal_transactions.xlsx` | XLSX | Analisar padrão de gastos do cliente |
 
 ---
 
 ## Adaptações nos Dados
 
-Dados mockados do arquivo 'personal_transactions.xlsx' obtidos a partir do [Kaggle](https://www.kaggle.com/datasets/entrepreneurlife/personal-finance/code)
-
-[Sua descrição aqui]
+Dados mockados do arquivo `personal_transactions.xlsx` obtidos a partir do [Kaggle](https://www.kaggle.com/datasets/entrepreneurlife/personal-finance/code)
 
 ---
 
 ## Estratégia de Integração
 
 ### Como os dados são carregados?
-> Descreva como seu agente acessa a base de conhecimento.
+Os arquivos são carregados no início da sessão via código conforme abaixo ou incluídos no contexto do prompt.
 
-[ex: Os JSON/CSV são carregados no início da sessão e incluídos no contexto do prompt]
+```python
+import json
+import pandas as pd
 
+# CSV 
+historico=pd.read_csv('data/historico_atendimento.csv')
+
+#XLSX
+transacoes = pd.read_excel('data/personal_transactions.xlsx')
+
+#JSON
+with open('data/perfil_investidor.json','r',enconding='utf-8') as f:
+  perfil = json.load(f)
+
+with open('data/produtos_financeiros.json','r',enconding ='utf-8') as f:
+produtos = json.load(f)
+
+```
 ### Como os dados são usados no prompt?
-> Os dados vão no system prompt? São consultados dinamicamente?
 
-[Sua descrição aqui]
+Os dados podem ser utilizados para:
 
----
+Entender o contexto financeiro do usuário: renda, despesas, orçamento, investimentos e objetivos.
+Identificar padrões: analisar gastos recorrentes, categorias com maior consumo e possíveis desvios do orçamento.
+Personalizar recomendações: adaptar sugestões de acordo com os objetivos e perfil financeiro informado.
+Realizar cálculos: saldo disponível, percentual de gastos, projeções, metas de economia e cenários financeiros.
+Gerar alertas proativos: identificar, por exemplo, aumento incomum de despesas ou aproximação de um limite orçamentário.
+Contextualizar a resposta: utilizar os dados mais recentes disponíveis para evitar respostas genéricas.
+Manter segurança: limitar as recomendações aos dados fornecidos e sinalizar quando não houver informações suficientes para uma conclusão.
 
 ## Exemplo de Contexto Montado
-
-> Mostre um exemplo de como os dados são formatados para o agente.
 
 ```
 Dados do Cliente:
